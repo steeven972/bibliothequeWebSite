@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Arial, sans-serif;
+}
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header .header-container{
+    max-width: 100%;
+    height: 15vh;
+    background-color: rgb(193, 0, 42);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+header .header-container h2{
+    margin-left: 20px;
+    font-size: 36px;
+    color: #fff;
+}
+header .header-container ul{
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 20px;
+}
+li{
+    font-size: 20px;
+    list-style: none;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.header-container .search-container{
+    width: 400px;
+    margin-right: 200px;
+    border: none;
+    border: 1px solid rgb(20, 20, 20);
+    border-radius: 100px;
+    display: flex;
+}
+
+.header-container input[type="search"]{
+    width: 400px;
+    border: none;
+    border-radius: 100px 0 0 100px;
+    padding: 10px 30px;
+    padding-right: 10px;
+}
+.header-container input[type="search"]:focus{
+    outline: none;
+}
+#submit{
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 15px;
+    border-radius: 0 100px 100px 0;
+   
+}
+.landing-image{
+    width: 100%;
+    height: 80vh;
+    background: url("christin-hume-k2Kcwkandwg-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.genre-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: absolute;
+    top: 85vh;
+}
+.genre{
+    
+    width: 225px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 30px;
+    
+    box-shadow: 1px 1px 0px rgb(193, 0, 42);
+    cursor: pointer;
+}
+.genre:hover{
+    transform: scale(1.05);
+}
+
+.catalogue{
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.livreDiv{
+    min-width: 500px;
+    padding: 15px;
+    
+    border-radius: 15px;
+    max-height: 300px;
+    box-shadow: 10px 10px 30px #b5b5b5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.livreDiv:hover{
+    transform: scale(1.005);
+}
+
+.livreDiv p{
+    line-height: 25px;
+}
+.livreDiv .titre{
+    margin-top: 20px;
+}
+.livreDiv .description{
+    margin-top: 20px;
+    text-align: center;
+}
+.livreDiv button{
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.quantity{
+    width: 100px;
+    height: 15px;
+    margin: 20px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}

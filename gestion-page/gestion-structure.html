@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-gestionPage.css">
+    <title>Gestionnaire bibliotheque</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Ajout de livre</h2>
+            <form action="/add" method="post">
+                <div class="input-container">
+                    <input type="text" placeholder="Titre..." required>
+                    <input type="text" placeholder="Auteur..." required>
+                    <input type="text" placeholder="Année parution..." required>
+                    <textarea name="description" id="description" placeholder="Description"></textarea>
+
+                </div>
+                
+                <input type="submit" value="Créer" id="submit">
+            </form>
+        </div>
+    </div>
+    <script src="database.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="landig-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Biblio</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h2>Biblotheque</h2>
+            <div class="search-container">
+                <input id="search-bar" type="search" placeholder="Rechercher un livre,un genre... ">
+                <button type="submit" id="submit" onclick="search()"><i class="fa fa-search"></i></button>
+            </div>
+            
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="../gestion-page/gestion-structure.html">Gestion</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="landing-image">
+            <div class="genre-container">
+                <div class="genre" id="genre1" value="Roman">Romans</div>
+                <div class="genre" id="genre2" value="Manga">Mangas</div>
+                <div class="genre" id="genre3" value="BD">BD</div>
+                <div class="genre" id="genre4" value="Roman">Romans policiers</div>
+                <div class="genre" id="genre4" value="Roman">Romans policiers</div>
+    
+            </div>
+            
+        </section>
+
+        <section class="catalogue">
+            <!--<div class="livreDiv" id="livre">
+                <p class="titre">Les Misérables <span class="date">1862</span></p>
+                <p class="auteur">Victor Hugo</p>
+
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio,  </p>
+                
+                <button id="Emprunter-btn" onclick="emprunter(this)">Emprunter</button>
+                
+            </div>-->
+            
+        </section>
+    </main>
+    <script src="./landigJS.js"></script>
+</body>
+</html>
