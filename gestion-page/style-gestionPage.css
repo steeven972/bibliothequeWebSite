@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:"Open", sans-serif;
     color: rgb(20,20,20);
 }
 
@@ -16,9 +16,8 @@
 }
 
 .content{
-    width: 400px;
-    height: 60vh;
-    padding: 30px;
+    width: 500px;
+    height: 65vh;
     box-shadow: 5px 5px 30px #000;
     border-radius: 20px;
     grid-column: 2;
@@ -30,36 +29,56 @@
     text-align: center;
 }
 
-.content form .input-container{
+.content h2{
+    font-size: 32px;
+    background-color: rgb(193, 0, 42);
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+#book-form{
+    width: 90%;
+    height: 30vh;
+
     display: flex;
     flex-direction: column;
-    margin: 30px;
-    
+    align-items: center;
 }
+.content form .input-container{
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: 30px;
+}
+
 .input-container input{
-    margin: 10px;
     border: none;
     padding: 10px;
-    border-radius: 100px;
-    background-color: #4d4d4d;
-    color: #fff;
+    border-bottom: 2px solid rgb(193, 0, 42);
 }
 input,#description:focus{
     outline: none;
 }
 #description{
-    background-color: #4d4d4d;
-    color: #fff;
-    border: none;
+    width: 80%;
+    border: 2px solid rgb(193, 0, 42);
     border-radius: 10px;
+    margin-top: 40px;
     padding: 7px;
-    margin-top: 10px;
     resize: none;
 }
 #submit{
+    text-align: center;
     border: none;
-    border-radius: 20px;
     padding: 10px;
-    margin-top: 10px;
-
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: rgb(193, 0, 42);
+    color: #fff;
+    font-size: 16px;
+}
+#submit:hover{
+    background-color: rgba(193, 0, 42, 0.755);
 }

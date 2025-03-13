@@ -2,15 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:"Open", sans-serif;
 }
 
 
 
 .biblio{
     width: 400px;
-    height: 50vh;
-    filter: blur();
+    height: 60vh;
     margin: auto auto;
     margin-top: 100px;
     
@@ -22,13 +21,17 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    padding: 10px;
     /*border: 5px solid #4d4d4d;*/
-    box-shadow: 5px 5px 30px #000;
+    box-shadow: 0 0 40px #000000a1;
 }
 .content h2{
+    width: 100%;
+    text-align: center;
     font-size: 44px;
-    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(193, 0, 42);
+    color: #fff;
+    padding: 10px;
 }
 .input-user form{
     margin-top: 30px;
@@ -39,28 +42,27 @@
 }
 .content input{
     border: none;
-    border-radius: 100px;
-    background-color: #4d4d4d;
+    border-bottom: 2px solid rgb(193, 0, 42);
     padding: 10px;
-    margin: 10px;
-    color: #fff;
-
+    margin: 20px;
+    color: #000;
+    
 }
 
-.content input::placeholder{
-    color: #eeeeeeb6;
-}
+
 .content input:focus{
     outline: none;
 }
-.content input:hover{
-    
-    transform: scale(1.1);
-}
+
 #submit{
     border: none;
     padding: 10px;
     border-radius: 20px;
-    margin-top: 10px;
+    margin-top: 30px;
+    background-color: rgb(193, 0, 42);
+    color: #fff;
+    font-size: 16px;
 }
-
+#submit:hover{
+    background-color: rgba(193, 0, 42, 0.755);
+}

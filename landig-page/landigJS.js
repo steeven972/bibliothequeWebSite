@@ -1,5 +1,5 @@
 class Livre{
-    constructor(isbn, titre,auteur, date, description, exemplaire,genre ){
+    constructor(isbn, titre,auteur, date, description, exemplaire,genre, couverture){
         this.isbn = isbn;
         this.titre = titre;
         this.auteur = auteur;
@@ -8,6 +8,7 @@ class Livre{
         this.exemplaire = exemplaire;
         this.disponible = true;
         this.genre = genre;
+        this.couverture = couverture;
     }
     getDisponible(){
         if (this.exemplaire > 0 ){
@@ -30,7 +31,7 @@ class Livre{
         if (this.exemplaire > 0){
             this.exemplaire--;
             this.afficherDispo(disponible);
-            quantity.innerHTML = this.exemplaire;
+            quantity.innerHTML = `${this.exemplaire} disponible !`;
             console.log(titreContent + " a été emprunté !!");
         }else{
             console.log(titreContent + "n'est plus disponible !!")
@@ -67,6 +68,8 @@ class BD extends Livre{
 
 
 function createLivre(livre) {
+
+
     let livreDiv = document.createElement("div");
     livreDiv.classList.add("livreDiv");
 
@@ -97,21 +100,31 @@ function createLivre(livre) {
 
     let quantity = document.createElement("span");
     quantity.classList.add("quantity");
-    quantity.innerHTML = livre.exemplaire;
+    quantity.innerHTML = `${livre.exemplaire} disponible !`;
 
     let disponible = document.createElement("span");
     disponible.classList.add("disponibleSpan");
     livre.afficherDispo(disponible);
 
+    let couverture = document.createElement("div");
+    couverture.classList.add("couverture")
+    couverture.style.background = `url("${livre.couverture})`;
+    couverture.style.backgroundSize = `cover`;
+    couverture.style.backgroundPosition = `center`;
+    
+
+    livreDiv.appendChild(couverture);
     livreDiv.appendChild(titre);
     livreDiv.appendChild(auteur);
-    livreDiv.appendChild(description);
+    //livreDiv.appendChild(description);
     livreDiv.appendChild(button);
     livreDiv.appendChild(quantity);
-    livreDiv.appendChild(disponible);
+    //livreDiv.appendChild(disponible);
+    
 
     document.querySelector(".catalogue").appendChild(livreDiv);
 }
+
 
 
 //TODO add into db mysql
@@ -121,7 +134,8 @@ let roman1 = new Livre(154,
     "1862",  
     "Un roman sur la rédemption...",
     4,
-    "roman"
+    "roman",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA6T8sVzJVBPbCD0zTn9AOwwdEZ34iCdMnkg&s"
     
 )
 
@@ -132,8 +146,8 @@ let manga1 = new Livre(583,
         "2012",
         "Un super-héros qui bat ses ennemis...",
         2,
-        "manga"
-        
+        "manga",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCIURk5-1VGhfxnAMWk645IviXB-ATBqEjTg&s"
     );
 let roman2 = new Livre(25649,
         "1984",
@@ -141,7 +155,8 @@ let roman2 = new Livre(25649,
         "1949",
         "Un monde totalitaire sous surveillance...",
         0,
-        "roman"
+        "roman",
+        "https://cdn1.booknode.com/book_cover/1216/full/1984-1215978.jpg"
         
     ); 
 let list = [roman1, manga1, roman2];

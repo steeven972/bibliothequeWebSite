@@ -9,20 +9,22 @@
 <body>
     <div class="container">
         <div class="content">
-            <h2>Ajout de livre</h2>
-            <form action="/add" method="post">
+            <h2>Ajout d'un livre</h2>
+            <form action="/add" method="post" id="book-form">
                 <div class="input-container">
-                    <input type="text" placeholder="Titre..." required>
-                    <input type="text" placeholder="Auteur..." required>
-                    <input type="text" placeholder="Année parution..." required>
-                    <textarea name="description" id="description" placeholder="Description"></textarea>
-
+                    <input type="text" name="titre" placeholder="Titre..." id="titre" required>
+                    <input type="text" name="auteur" placeholder="Auteur..." id="auteur" required>
+                    <input type="text" name="annee" placeholder="Année parution..." id="annee" required>
+                    <input type="text" name="genre" placeholder="Genre littéraire..." id="genre" required>
+                    <input type="text" name="quantity" placeholder="Nombre d'exemplaires..." id="quantity" required>
+                    <input type="text" name="lienCouverture" placeholder="Lien couverture..." id="lienCouverture" required>
                 </div>
+                <textarea name="description" id="description" placeholder="Description" required></textarea>
                 
                 <input type="submit" value="Créer" id="submit">
             </form>
         </div>
     </div>
-    <script src="database.js"></script>
+    <script src="./database.js"></script>
 </body>
 </html>

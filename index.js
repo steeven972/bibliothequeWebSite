@@ -1,21 +1,21 @@
 
- 
 class Utilisateur{
     constructor(username, email, password){
         this.username = username;
         this.password = password;
         this.email = email;
         this.livresEmprunter = [];
-        this.livresVente = [];
+        this.livresRendu = [];
     }
     emprunt(livre){
         this.livresEmprunter.push(livre);
     }
-    vend(livre){
-        this.livresVente.push(livre);
+    rendre(livre){
+        this.livresRendu.push(livre);
     }
     
 }
+
 
 function submitForm(event){
     event.preventDefault();
@@ -24,7 +24,7 @@ function submitForm(event){
         let user1 = new Utilisateur(username.value, email.value, password.value);
         console.log("New user created !");
         console.log("User name =" + user1.username);
-        location.href = "./landig-page/bibliotheque-landig.html";
+        
         return true;
     }
     catch(e){
@@ -37,4 +37,11 @@ function submitForm(event){
 
 
 
+
+fetch("http://localhost:3000/landig")
+        .then(response => response.json())
+        .then(data => {
+            console.log("test: " + data); // Affiche la liste des livres dans la console
+        })
+        .catch(error => console.error("Erreur:", error));
 
