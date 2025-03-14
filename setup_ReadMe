@@ -1,0 +1,13 @@
+git init
+git clone https://github.com/steeven972/bibliothequeWebSite.git
+cd bibliothequeWebSite
+
+npm i express
+npm i mysql
+npm i cors
+nmp i bcrypt
+
+node bibliothequeWebSite/server.js
+
+http:/localhost:3000/signup
+
