@@ -5,6 +5,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require("path")
+const bcrypt = require('bcrypt');
+
 /*const dotnet = require('dotenv');
 dotnet.config();*/
 app.use(express.json());
@@ -54,8 +56,10 @@ app.post("/add", (req, res) => {
     });
 });
 
+
+
 // récupérer les livres
-app.get("/Livre", (req, res) => {
+/*app.get("/Livre", (req, res) => {
     const sql = "SELECT * FROM livre_stock"; 
     con.query(sql, (err, result) => {
         if (err) {
@@ -65,28 +69,58 @@ app.get("/Livre", (req, res) => {
             res.json(result); // Envoie la liste des livres en JSON
         }
     });
+});*/
+
+const salt = 10; 
+// Lors de l'ajout d'un utilisateur
+app.post("/landig", async (req, res) => {
+    let { name, email, password } = req.body;
+
+    // Vérification des champs obligatoires
+    if (!name || !email || !password) {
+        return res.status(400).json({ message: "Veuillez remplir tous les champs obligatoires" });
+    }
+
+    try {
+        // Hashage du mot de passe
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Enregistrer l'utilisateur avec le mot de passe haché
+        const sql = "INSERT INTO utilisateur (name, email, password) VALUES (?, ?, ?)";
+        con.query(sql, [name, email, hashedPassword], (err, result) => {
+            if (err) {
+                console.error("Erreur lors de l'insertion :", err);
+                return res.status(500).json({ message: `Erreur serveur: ${err}` });
+            }
+            res.status(201).json({ message: "Nouvel utilisateur créé", id: result.insertId });
+        });
+
+    } catch (error) {
+        console.error("Erreur lors du hashage du mot de passe :", error);
+        res.status(500).json({ message: "Erreur serveur" });
+    }
 });
 
-app.get("/landig", (req, res) => {
-    const filePath = path.join(__dirname, "./landig-page/bibliotheque-landig.html");
-    res.sendFile(filePath);
+
+app.get("/api/livre", (req, res) =>{
     const sql = "SELECT * FROM livre_stock"; 
     con.query(sql, (err, result) => {
         if (err) {
             console.error("Erreur lors de la récupération des livres :", err);
             res.status(500).json({ error: "Erreur serveur" });
         } else {
-            console.log(result); // Envoie la liste des livres en JSON
+            res.json(result)// Envoie la liste des livres en JSON
+            
         }
     });
-});
+})
 
-app.get("/login", (req, res) =>{
+app.get("/signup", (req, res) =>{
     const filePath = path.join(__dirname, "./struct.html");
     res.sendFile(filePath);
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
     console.log("Serveur démarré sur http://localhost:3000");
 });
 

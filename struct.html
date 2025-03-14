@@ -10,13 +10,13 @@
     <div class="biblio">
         <div class="content">
             
-            <h2>Login</h2>
+            <h2>Signup</h2>
             
             <div class="input-user">
-                <form action="/landig" method="get">
-                    <input type="text" placeholder="UserName" id="username" required>
-                    <input type="email" placeholder="email" id="email" required>
-                    <input type="password" placeholder="password" id="password" required >
+                <form id="formUser" action="/landig" method="post">
+                    <input type="text" placeholder="UserName" id="username" name="name" required>
+                    <input type="email" placeholder="email" id="email" name="email" required>
+                    <input type="password" placeholder="password" id="password" name="password" required >
                     <button type="submit" id="submit">Submit</button>
                     
                 </form>

@@ -16,6 +16,38 @@ class Utilisateur{
     
 }
 
+const formUser = document.getElementById("formUser");
+formUser.addEventListener("submit", async function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    // Récupérer les valeurs du formulaire
+    const name = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+   
+    // Envoyer les données avec fetch()
+    try {
+        const response = await fetch("http://localhost:3000/landig", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name, 
+                email,
+                password
+            })
+        });
+
+        const result = await response.json();
+        alert(result.message); // Affiche un message de confirmation
+
+        location.href = "./landig-page/bibliotheque-landig.html"
+
+    } catch (error) {
+        console.error("Erreur lors de l'envoi :", error);
+    }
+});
 
 function submitForm(event){
     event.preventDefault();
@@ -37,11 +69,4 @@ function submitForm(event){
 
 
 
-
-fetch("http://localhost:3000/landig")
-        .then(response => response.json())
-        .then(data => {
-            console.log("test: " + data); // Affiche la liste des livres dans la console
-        })
-        .catch(error => console.error("Erreur:", error));
 

@@ -23,7 +23,7 @@ class Livre{
             span.innerHTML = "Pas disponible !";
             
         }else{
-            span.innerHTML = "Disponible";
+            span.innerHTML = "en stock";
         }
     }
     emprunter(quantity, disponible){
@@ -31,7 +31,7 @@ class Livre{
         if (this.exemplaire > 0){
             this.exemplaire--;
             this.afficherDispo(disponible);
-            quantity.innerHTML = `${this.exemplaire} disponible !`;
+            quantity.innerHTML = `${this.exemplaire} en stock !`;
             console.log(titreContent + " a été emprunté !!");
         }else{
             console.log(titreContent + "n'est plus disponible !!")
@@ -100,7 +100,7 @@ function createLivre(livre) {
 
     let quantity = document.createElement("span");
     quantity.classList.add("quantity");
-    quantity.innerHTML = `${livre.exemplaire} disponible !`;
+    quantity.innerHTML = `${livre.exemplaire} en stock !`;
 
     let disponible = document.createElement("span");
     disponible.classList.add("disponibleSpan");
@@ -126,8 +126,18 @@ function createLivre(livre) {
 }
 
 
+fetch("http://localhost:3000/api/livre")
+        .then(response => response.json())
+        .then(datas => {
+            datas.forEach(data => {
+                createLivre(new Livre(data.id, data.titre, data.auteur,data.annee, data.description,  data.quantity, data.genre, data.couverture))
+            }); // Affiche la liste des livres dans la console
+        })
+        .catch(error => console.error("Erreur:", error));
+
 
 //TODO add into db mysql
+
 let roman1 = new Livre(154, 
     "Les miserable", 
     "victor Hugo", 
