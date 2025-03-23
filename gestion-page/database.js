@@ -12,7 +12,7 @@ formBook.addEventListener("submit", async function(event) {
     const lienCouverture = document.getElementById("lienCouverture").value;
     const description = document.getElementById("description").value;
 
-    // Envoie les données avec fetch()
+    // Envoie les données
     try {
         const response = await fetch("http://localhost:4000/add", {
             method: "POST",
@@ -33,7 +33,7 @@ formBook.addEventListener("submit", async function(event) {
         const result = await response.json();
         alert(result.message); 
 
-        // Réinitialiser le formulaire après envoi
+        
         document.getElementById("book-form").reset();
 
     } catch (error) {

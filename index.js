@@ -61,7 +61,7 @@ signupForm.addEventListener("submit", async function(event) {
         alert(result.message); 
         //redirection
         if (response.ok){
-            window.location.href = "./landig-page/bibliotheque-landig.html";
+            window.location.href = "./home";
         }
 
     } catch (error) {
@@ -92,7 +92,7 @@ loginForm.addEventListener("submit", async function(event) {
         alert(result.message); 
         //redirection
         if(response.ok){
-            window.location.href = "http://localhost:4000/landig-page/bibliotheque-landig.html";
+            window.location.href = "http://localhost:4000/home";
         }
     } catch (error) {
         console.error("Erreur lors de l'envoi :", error);

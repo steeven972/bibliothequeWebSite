@@ -6,7 +6,6 @@ const app = express();
 const path = require("path")
 const bcrypt = require('bcrypt');
 const cors = require('cors');
-const socketIo = require('socket.io');
 
 
 app.use(cors());
@@ -142,12 +141,15 @@ app.get("/connection", (req, res) =>{
     res.sendFile(filePath);
 })
 
-app.get('/landig-page/bibliotheque-landig.html', (req, res) => {
+app.get('/home', (req, res) => {
     const filePath = path.join(__dirname, "landig-page", "bibliotheque-landig.html");
     res.sendFile(filePath);
 });
 
-
+app.get('/gestion-page/gestion-structure.html', (req, res) => {
+    const filePath = path.join(__dirname, "gestion-page", "gestion.html");
+    res.sendFile(filePath);
+});
 app.listen(PORT, HOST, () => {
     console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });

@@ -9,5 +9,19 @@ nmp i bcrypt
 
 node bibliothequeWebSite/server.js
 
-http:/localhost:3000/signup
+Lien: http:/localhost:4000/connection
 
+J'ai fais la partie crée un utilisateur qui s'ajoute à la base de donnée utilisateur, il y a une partie connection à partir des utilisateurs présent dans la db.
+
+Redirection vers la landig page ou on peut voir les livres disponible qui sont pris dans la base de données stock_livre 
+
+Dans cette page on peut voir le nombre de livre dispo et on peut les emprunter.
+Je n'ai pas devolopper de fonctionnalité de remise des livres car je n'ai pas fais la fonctionnalité profil utilisateur.
+
+Il y a la partie gestion des livres qui permet d'ajouter des livres à la db, il y a un soucis au niveau de l affichage de certain image de couverture selon le lien
+
+Le site est normalement multiplatform en changeant tout les localhost en ip de la machine et en le HOST -> "0.0.0.0", en faisant le multiplatform il y a un probleme de redirection des pages
+
+http://localhost:4000/connection
+http://localhost:4000/home
+http://localhost:4000/gestion-page/gestion.html
