@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="connectionStyle.css">
+    <title>Connect</title>
+</head>
+<body>
+    <div class="container">
+        <div class="Signup" id="signupId">
+            <h2>Signup</h2>
+            <div class="input-user">
+                <form class="formUser signup-form" id="signup-form" action="/signup" method="post">
+                    <input type="text" placeholder="UserName" id="username" name="username" required>
+                    <input type="email" placeholder="Email" id="email" name="email" required>
+                    <input type="password" placeholder="Password" id="password" name="password" required >
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <button id="switch-btn">signup</button>
+        <div class="Login" id="loginId">
+            <h2>Login</h2>
+            <div class="input-user">
+                <form class="formUser login-form" id="login-form" action="/login" method="post">
+                    <input type="email" placeholder="Email" id="email-login" name="email" required>
+                    <input type="password" placeholder="Password" id="password-login" name="password" required >
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"> </script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</body>
+</html>

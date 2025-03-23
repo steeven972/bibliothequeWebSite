@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Open", sans-serif;
+}
+
+.container{
+    height: 70vh;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
+    margin-top: 15vh;
+    box-shadow: 1px 1px 30px  #000000a1;
+    border-radius: 10px;
+    position: relative;
+}
+
+.container::before{
+    content: "";
+    text-align: center;
+    font-size: 30px;
+    color: rgb(193, 0, 42);
+    position: absolute;
+    width: 50%;
+    right: 50%;
+    height: inherit;
+    background-color:  #f0f0f0;
+    border-radius: 10px 0 0 10px;
+    z-index: -1;
+}
+
+.container::after{
+    content: "";
+    text-align: center;
+    font-size: 30px;
+    color: #f0f0f0;
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    height: inherit;
+    background-color: rgb(193, 0, 42);
+    border-radius: 0 10px 10px 0;
+    z-index: -1;
+}
+
+
+.Signup, .Login{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.Signup{
+    background-color:  #f0f0f0;
+    color: rgb(193, 0, 42);
+    border-radius: 10px 0 0 10px;
+    visibility: hidden;
+}
+.Login{
+    background-color:  rgb(193, 0, 42);
+    color: white;
+    border-radius: 0 10px 10px 0;
+    
+}
+.input-user{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.formUser{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.Signup h2, .Login h2{
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    padding: 10px;
+}
+.formUser input{
+    width: 80%;
+    height: 30px;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    outline: none;
+    background: none;
+}
+
+.login-form input{
+    border-bottom: 2px solid  #f0f0f0;
+    color:  #f0f0f0;
+    transform: translateY(25px);
+}
+.signup-form input{
+    border-bottom: 2px solid  rgb(193, 0, 42);
+}
+.formUser button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 5px 15px 5px 15px;
+    margin-top: 20px;
+}
+
+.login-form button{
+    background-color: #f0f0f0;
+    color: rgb(193, 0, 42);
+    margin-top: 85px;
+}
+.signup-form button{
+    background-color: rgb(193, 0, 42);
+    color: #f0f0f0;
+}
+
+#switch-btn{
+    border: none;
+    background-color: rgb(193, 0, 42);
+    padding: 10px;
+    border-radius: 30px;
+    color: #f0f0f0;
+}

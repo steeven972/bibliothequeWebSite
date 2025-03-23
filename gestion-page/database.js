@@ -2,7 +2,7 @@ const formBook = document.getElementById("book-form");
 formBook.addEventListener("submit", async function(event) {
     event.preventDefault(); // Empêche le rechargement de la page
 
-    // Récupérer les valeurs du formulaire
+    // Récupére les valeurs du formulaire
     
     const titre = document.getElementById("titre").value;
     const auteur = document.getElementById("auteur").value;
@@ -12,9 +12,9 @@ formBook.addEventListener("submit", async function(event) {
     const lienCouverture = document.getElementById("lienCouverture").value;
     const description = document.getElementById("description").value;
 
-    // Envoyer les données avec fetch()
+    // Envoie les données avec fetch()
     try {
-        const response = await fetch("http://localhost:3000/add", {
+        const response = await fetch("http://localhost:4000/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ formBook.addEventListener("submit", async function(event) {
         });
 
         const result = await response.json();
-        alert(result.message); // Affiche un message de confirmation
+        alert(result.message); 
 
         // Réinitialiser le formulaire après envoi
         document.getElementById("book-form").reset();

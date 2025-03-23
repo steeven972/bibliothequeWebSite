@@ -1,3 +1,5 @@
+
+//objet et heritage
 class Livre{
     constructor(isbn, titre,auteur, date, description, exemplaire,genre, couverture){
         this.isbn = isbn;
@@ -66,7 +68,7 @@ class BD extends Livre{
     }
 }   
 
-
+//function pour afficher les livres html/css de maniere dynamique
 function createLivre(livre) {
 
 
@@ -126,7 +128,7 @@ function createLivre(livre) {
 }
 
 
-fetch("http://localhost:3000/api/livre")
+fetch("http://localhost:4000/api/livre")
         .then(response => response.json())
         .then(datas => {
             datas.forEach(data => {
@@ -135,9 +137,9 @@ fetch("http://localhost:3000/api/livre")
         })
         .catch(error => console.error("Erreur:", error));
 
-
-//TODO add into db mysql
-
+//creation des livres non dependant de la ase de donnée
+//Pas necessaire
+/*-----------------------------*/
 let roman1 = new Livre(154, 
     "Les miserable", 
     "victor Hugo", 
@@ -174,13 +176,12 @@ let list = [roman1, manga1, roman2];
 for(livreElement of list){
     createLivre(livreElement);
 }
+/*-----------------------------*/
 
-
-
+//function pour la bar de recherche
 function search() {
     const livresDivs = document.querySelectorAll(".livreDiv");
     const rechercheLower = document.getElementById("search-bar").value.toLowerCase(); 
-
     livresDivs.forEach((livreDiv) => {
         const titre = livreDiv.dataset.titre.toLowerCase();
         const auteur = livreDiv.dataset.auteur.toLowerCase();
@@ -190,10 +191,32 @@ function search() {
         if (titre.includes(rechercheLower) || auteur.includes(rechercheLower) || genre.includes(rechercheLower)) {
             livreDiv.style.display = "flex"; 
             livreDiv.scrollIntoView();
+        } 
+        else {
+            livreDiv.style.display = "none"; 
+        }
+    });
+}
+
+function filtrerGenre(event) {
+    const genreSelectionne = event.target.value.toLowerCase();
+    const livresDivs = document.querySelectorAll(".livreDiv");
+
+    livresDivs.forEach((livreDiv) => {
+        const genre = livreDiv.dataset.genre.toLowerCase();
+
+        if (genreSelectionne === "all" || genre.includes(genreSelectionne)) {
+            livreDiv.style.display = "flex"; 
         } else {
             livreDiv.style.display = "none"; 
         }
     });
 }
+
+
+document.querySelectorAll(".genre-btn").forEach((btn) => {
+    btn.addEventListener("click", filtrerGenre);
+});
+
 
 
